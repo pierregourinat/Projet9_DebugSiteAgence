@@ -13,7 +13,14 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const { last } = useData();
+  const { data } = useData();
+  const sortedEvents =
+    data?.events && Array.isArray(data.events)
+      ? [...data.events].sort((a, b) => new Date(b.date) - new Date(a.date))
+      : [];
+
+  const last = sortedEvents.length > 0 ? sortedEvents[0] : null;
+
   return (
     <>
       <header>
@@ -119,7 +126,7 @@ const Page = () => {
             title={last?.title}
             date={new Date(last?.date)}
             small
-            label="boom"
+            label={last?.type}
           />
         </div>
         <div className="col contact">
