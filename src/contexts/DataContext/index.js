@@ -30,7 +30,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (data) return;
     getData();
-  });
+  }, [getData]);
 
   return (
     <DataContext.Provider
