@@ -11,7 +11,7 @@ const mockContactApi = () =>
 
 const Form = ({ onSuccess, onError }) => {
   const [sending, setSending] = useState(false);
-  const [succesMessage, setSuccessMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
 
   const sendContact = useCallback(
     async (evt) => {
@@ -47,7 +47,7 @@ const Form = ({ onSuccess, onError }) => {
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
             {sending ? "En cours" : "Envoyer"}
           </Button>
-          {succesMessage}
+          {successMessage}
         </div>
         <div className="col">
           <Field
